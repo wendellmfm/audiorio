@@ -19,32 +19,8 @@ import br.great.jogopervasivo.actvititesDoJogo.SplashScreen;
  * @since 1.0
  */
 public class Armazenamento {
-
-    public static String resgatarIP(Context context){
-     String ip =  resgatarString(Constantes.TAG_CONFIGURACAO_IP, context);
-        if (ip.trim().length()==0){
-            return "200.129.43.207";
-        }
-        return ip;
-    }
-    public static int resgatarPorta(Context context){
-        int porta =  resgatarInt(Constantes.TAG_CONFIGURACAO_PORTA, context);
-        if (porta==-1){
-            return 8083;
-        }
-        return porta;
-    }
-
-
-    public static String resgatarIPArquivos(Context context){
-        String ip =  resgatarString(Constantes.TAG_CONFIGURACAO_IP_ARQUIVOS, context);
-        if (ip.trim().length()==0){
-            salvar(Constantes.TAG_CONFIGURACAO_IP_ARQUIVOS,"200.129.43.207",context);
-            return "http://"+resgatarIP(context)+"/pervasivedb/";
-        }
-        return "http://"+ip+"/pervasivedb/";
-    }
-
+    public static final String JOGADOR_LATITUDE = "jogador_latitude";
+    public static final String JOGADOR_LONGITUDE = "jogador_longitude";
 
     /**
      * Método que salva alocalização atual do jogador
@@ -55,8 +31,8 @@ public class Armazenamento {
     public static void salvarLocalizacao(final Location location, Context context) {
         SharedPreferences preferences = novoPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(Constantes.JOGADOR_LATITUDE, Double.toString(location.getLatitude()));
-        editor.putString(Constantes.JOGADOR_LONGITUDE, Double.toString(location.getLongitude()));
+        editor.putString(JOGADOR_LATITUDE, Double.toString(location.getLatitude()));
+        editor.putString(JOGADOR_LONGITUDE, Double.toString(location.getLongitude()));
         editor.commit();
     }
 
@@ -70,8 +46,8 @@ public class Armazenamento {
      */
     public static Location resgatarUltimaLocalizacao(Context context) {
         SharedPreferences prefs = novoPreferences(context);
-        Double latitude = Double.parseDouble(prefs.getString(Constantes.JOGADOR_LATITUDE, "0"));
-        Double longitude = Double.parseDouble(prefs.getString(Constantes.JOGADOR_LONGITUDE, "0"));
+        Double latitude = Double.parseDouble(prefs.getString(JOGADOR_LATITUDE, "0"));
+        Double longitude = Double.parseDouble(prefs.getString(JOGADOR_LONGITUDE, "0"));
         Location localizacao = new Location(LocationManager.GPS_PROVIDER);
         localizacao.setLatitude(latitude);
         localizacao.setLongitude(longitude);
@@ -159,43 +135,6 @@ public class Armazenamento {
     public static int resgatarInt(String tag, Context context) {
         SharedPreferences prefs = novoPreferences(context);
         return prefs.getInt(tag, -1);
-    }
-
-    /**
-     * Recupera o registro GCM do dispositivo salvo pela última vez
-     *
-     * @param context contexto da activity principal
-     * @return ultimo registro GCM salvo
-     */
-    public static String resgatarRegistroDoDispositivo(Context context) {
-        SharedPreferences prefs = novoPreferences(context);
-        String registrationId = prefs.getString(Constantes.REGISTRO_DISPOSITIVO, "");
-        if (registrationId.trim().length() == 0) {
-            return "";
-        }
-        int registeredVersion = prefs.getInt(Constantes.VERSAO_APP, Integer.MIN_VALUE);
-        int currentVersion = Armazenamento.pegarVersaoDoAplicativo(context);
-
-        if (registeredVersion != currentVersion) {
-            return "";
-        }
-        return registrationId;
-    }
-
-    /**
-     * Salva registro GCM no sharedPreferences
-     *
-     * @param context contexto da activity principal
-     * @param regId   numero de registro recebido do servidor do Google
-     */
-    public static void salvarRegistroDoDispositivo(Context context, String regId) {
-        SharedPreferences prefs = novoPreferences(context);
-        int appVersion = Armazenamento.pegarVersaoDoAplicativo(context);
-
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(Constantes.REGISTRO_DISPOSITIVO, regId);
-        editor.putInt(Constantes.VERSAO_APP, appVersion);
-        editor.commit();
     }
 
     /**

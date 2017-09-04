@@ -14,7 +14,6 @@ import android.provider.Settings;
 
 import br.great.jogopervasivo.actvititesDoJogo.Mapa;
 import br.great.jogopervasivo.util.Armazenamento;
-import br.ufc.great.arviewer.pajeu.AndroidLauncher;
 import br.ufc.great.arviewer.pajeu.R;
 
 /**
@@ -26,10 +25,8 @@ public class GPSListener implements LocationListener {
 
     private Context context;
     private LocationManager locationManager;
-    private AndroidLauncher visualizadorDeRa;
     private ProgressDialog progressDialog;
     private Mapa mapa;
-    private boolean enableNetWorkProvider;
 
     public void setMapa(Mapa mapa) {
         this.mapa = mapa;
@@ -60,10 +57,6 @@ public class GPSListener implements LocationListener {
             if (location.getAccuracy() <= 10) {
                 mapa.novaLocalizacao(location);
             }
-        }
-
-        if (visualizadorDeRa != null) {
-            visualizadorDeRa.onLocationChanged(location);
         }
     }
 
@@ -102,9 +95,5 @@ public class GPSListener implements LocationListener {
 
     public void pararListener() {
         locationManager.removeUpdates(this);
-    }
-
-    public void setVisualizadorDeRa(AndroidLauncher visualizadorDeRa) {
-        this.visualizadorDeRa = visualizadorDeRa;
     }
 }

@@ -40,7 +40,7 @@ public class SplashScreen extends Activity {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                startActivity(new Intent(SplashScreen.this, LoginActivity.class));
+                startActivity(new Intent(SplashScreen.this, IniciarCaminhadaActivity.class));
                 finish();
             }
         }.execute();

@@ -2,43 +2,41 @@ package br.great.jogopervasivo.actvititesDoJogo;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
 import br.great.jogopervasivo.GPS.GPSListener;
-import br.great.jogopervasivo.util.Armazenamento;
-import br.great.jogopervasivo.util.Constantes;
+import br.great.jogopervasivo.util.EfeitoClique;
 import br.great.jogopervasivo.util.GPSListenerManager;
-import br.great.jogopervasivo.webServices.FazerLogin;
 import br.ufc.great.arviewer.pajeu.R;
 
-public class LoginActivity extends Activity {
+public class IniciarCaminhadaActivity extends Activity {
+    public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
-    private EditText loginEditText, senhaEditText;
-    private TextView naoCadastradoTextView;
     private GPSListener gpsListener;
-    private static LoginActivity instancia;
+    private static IniciarCaminhadaActivity instancia;
 
-    public static LoginActivity getInstancia(){
+    private RelativeLayout botaoCaminhadaBode;
+
+    public static IniciarCaminhadaActivity getInstancia(){
         return instancia;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_menu_caminhadas);
         iniciarComponentes();
-        Armazenamento.salvar(Constantes.JOGO_EXECUTANDO, false, this);
         instancia = this;
     }
 
@@ -119,26 +117,89 @@ public class LoginActivity extends Activity {
     }
 
     private void iniciarComponentes() {
-        loginEditText = (EditText) findViewById(R.id.login_login_edit_text);
-        senhaEditText = (EditText) findViewById(R.id.login_senha_edit_text);
-        naoCadastradoTextView = (TextView) findViewById(R.id.aindaNaoCadastradoTextView);
-        naoCadastradoTextView.setOnClickListener(new View.OnClickListener() {
+        //Inicializacao
+        botaoCaminhadaBode = (RelativeLayout) findViewById(R.id.menu_iniciar_excursao);
+        botaoCaminhadaBode.setOnTouchListener(new EfeitoClique(this));
+        botaoCaminhadaBode.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this ,RegisterActivity.class));
+            public void onClick(View view) {
+
+                startActivity(new Intent(IniciarCaminhadaActivity.this, Mapa.class));
+                finish();
+
+//                new AsyncTask<Void, Void, Boolean>() {
+//
+//                    ProgressDialog progressDialog;
+//
+//
+//                    @Override
+//                    protected void onPreExecute() {
+//                        progressDialog = new ProgressDialog(IniciarCaminhadaActivity.this);
+//                        progressDialog.setMessage(getString(R.string.obtendo_informacoes));
+//                        progressDialog.show();
+//                    }
+//
+//                    @Override
+//                    protected Boolean doInBackground(Void... params) {
+//
+//                        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+//                        String deviceId = telephonyManager.getDeviceId();
+//
+//                        //primeiro Cria uma instancia de jogo novo
+//                        CriarNovaInstanciaDeJogo criarNovaInstanciaDeJogo = new CriarNovaInstanciaDeJogo(IniciarCaminhadaActivity.this);
+//                        criarNovaInstanciaDeJogo.criar(Integer.toString(Jogo.CAMINHADA_BODE), deviceId);
+//
+//                        //Recupera as instancias ja criadas
+//                        RecuperarInstanciasDeJogos recuperarInstanciasDeJogos = new RecuperarInstanciasDeJogos(IniciarCaminhadaActivity.this);
+//                        List<InstanciaDeJogo> instanciaDeJogoList = recuperarInstanciasDeJogos.recuperar(Jogo.CAMINHADA_BODE, InformacoesTemporarias.idJogador);
+//                        for (InstanciaDeJogo i : instanciaDeJogoList) {
+//
+//                            //Recupera instancia com o  mesmo Device ID
+//                            if (i.getNomeFicticio().equals(deviceId)) {
+//                                EscolherEquipe escolherEquipe = new EscolherEquipe(IniciarCaminhadaActivity.this);
+//                                List<Grupo> grupos = escolherEquipe.recuperarGrupos(i.getId());
+//                                InformacoesTemporarias.instanciaDeJogo = i;
+//                                InformacoesTemporarias.grupo = grupos.get(0);
+//                                Location localizacao = Armazenamento.resgatarUltimaLocalizacao(IniciarCaminhadaActivity.this);
+//                                InicializarJogo inicializarJogo = new InicializarJogo(IniciarCaminhadaActivity.this, InformacoesTemporarias.instanciaDeJogo, InformacoesTemporarias.grupo, localizacao.getLatitude(), localizacao.getLongitude());
+//                                inicializarJogo.inicializar();
+//                                InformacoesTemporarias.jogoAtual = i;
+//                                InformacoesTemporarias.grupoAtual = grupos.get(0);
+//                                Armazenamento.salvar(Constantes.JOGO_EXECUTANDO, true, IniciarCaminhadaActivity.this);//Diz que tem jogo executando;
+//                                RecuperarObjetosInventario.recuperar(IniciarCaminhadaActivity.this);
+//                                startActivity(new Intent(IniciarCaminhadaActivity.this, Mapa.class));
+//                                finish(); //Faz casting do Context para activity  e fecha a janela.
+//                                return true;
+//                            }
+//                        }
+//
+//                        return false;
+//                    }
+//
+//                    @Override
+//                    protected void onPostExecute(Boolean aBoolean) {
+//                        progressDialog.dismiss();
+//                    }
+//                }.execute();
+
             }
         });
+
     }
 
-    public void fazerLogin(View v) {
-        new FazerLogin(this, v, loginEditText.getEditableText().toString(), senhaEditText.getEditableText().toString()).execute();
+    private void mostrarAlerta() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.app_name);
+        builder.setMessage(R.string.em_construcao);
+        builder.setNegativeButton(R.string.OK, null);
+        builder.create().show();
     }
 
     private boolean verificarPlayServices() {
         final int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
         if (resultCode != ConnectionResult.SUCCESS) {
             if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
-                Dialog dialog = GooglePlayServicesUtil.getErrorDialog(resultCode, this, Constantes.PLAY_SERVICES_RESOLUTION_REQUEST);
+                Dialog dialog = GooglePlayServicesUtil.getErrorDialog(resultCode, this, PLAY_SERVICES_RESOLUTION_REQUEST);
                 dialog.show();
             } else {
                 Toast.makeText(getApplicationContext(), "Play services sem suporte", Toast.LENGTH_SHORT).show();

@@ -57,23 +57,6 @@
             android:name="android.support.UI_OPTIONS"
             android:value="splitActionBarWhenNarrow" />
 
-        <receiver
-            android:name="br.great.jogopervasivo.gcmUtil.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="br.great.jogopervasivo.gcmUtil" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name="br.great.jogopervasivo.gcmUtil.GcmIntentService" />
-
-        <activity
-            android:name=".pajeu.AndroidLauncher"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" />
         <activity
             android:name="br.great.jogopervasivo.actvititesDoJogo.SplashScreen"
             android:screenOrientation="portrait">
@@ -90,16 +73,10 @@
             android:name="br.great.jogopervasivo.actvititesDoJogo.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.great.jogopervasivo.actvititesDoJogo.MenuCaminhadas"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="br.great.jogopervasivo.actvititesDoJogo.LoginActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="br.great.jogopervasivo.actvititesDoJogo.RegisterActivity"
+            android:name="br.great.jogopervasivo.actvititesDoJogo.IniciarCaminhadaActivity"
             android:screenOrientation="portrait" />
         <activity android:name="br.great.jogopervasivo.actvititesDoJogo.InventarioActivity" />
-        <activity android:name="br.great.jogopervasivo.actvititesDoJogo.AboutActivity"></activity>
+        <activity android:name="br.great.jogopervasivo.actvititesDoJogo.AboutActivity" />
     </application>
 
 </manifest>
