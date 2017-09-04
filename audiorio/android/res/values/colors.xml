@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#0057A6</color>
+    <color name="background_button">#3379B8</color>
+    <color name="background_drawer">#1968AF</color>
+    <color name="bar_dark">#3a3939</color>
+    <color name="gray_circle">#BDBFC1</color>
+
+    <color name="texto">#fff</color>
+
+    <color name="games_menu_buttons_color">#ECEDE6</color>
+    <color name="games_menu_buttons_effect_color">#3a3939</color>
+
+</resources>

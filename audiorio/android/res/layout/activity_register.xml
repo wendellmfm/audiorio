@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="br.great.jogopervasivo.actvititesDoJogo.RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:padding="@dimen/padding_ab">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_grande"
+            android:text="@string/app_activities_title"
+            android:textColor="@color/texto"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/game_type_activity_horizontal_margin"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="160dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <EditText
+            android:id="@+id/login_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bar_dark"
+            android:textColorHint="@color/bar_dark"
+            android:textSize="@dimen/texto_pequeno"
+            android:padding="@dimen/edit_text_padding"
+            android:hint="@string/login" />
+
+        <EditText
+            android:id="@+id/senha_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:padding="@dimen/edit_text_padding"
+            android:textColor="@color/bar_dark"
+            android:textColorHint="@color/bar_dark"
+            android:textSize="@dimen/texto_pequeno"
+            android:inputType="textPassword"
+            android:hint="@string/senha" />
+
+        <EditText
+            android:id="@+id/repetir_senha_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:padding="@dimen/edit_text_padding"
+            android:textColor="@color/bar_dark"
+            android:textColorHint="@color/bar_dark"
+            android:textSize="@dimen/texto_pequeno"
+            android:inputType="textPassword"
+            android:hint="@string/repetir_senha" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_activity_button_margin_top"
+            android:layout_gravity="center"
+            android:paddingRight="@dimen/login_activity_button_vertical_padding"
+            android:paddingLeft="@dimen/login_activity_button_vertical_padding"
+            android:textSize="@dimen/texto_medio"
+            android:text="@string/cadastrar"
+            android:onClick="cadastrar" />
+    </LinearLayout>
+
+</RelativeLayout>

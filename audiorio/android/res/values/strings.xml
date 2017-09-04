@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Excursão Pajeú</string>
+    <string name="app_activities_title">Excursão Pajeú: audioguia</string>
+    <string name="capturou_jogador">Jogador capturado</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="repetir_senha">Repita a senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="enviando_arquivo">Enviando arquivo</string>
+    <string name="autenticando">Fazendo login</string>
+    <string name="OK" translatable="false">OK</string>
+    <string name="falha_de_conexao">Falha na conexão com o servidor</string>
+    <string name="falha_de_autenticacao">Usuário ou senha inválidos</string>
+    <string name="ainda_nao_cadastrado"><u>Não é cadastrado?</u></string>
+    <string name="ativar_conexao">Ative uma conexão de dados</string>
+    <string name="salvando">Salvando</string>
+    <string name="usuario_ja_cadastrado">Usuário já cadastrado</string>
+    <string name="usuario_cadastrado">Usuário cadastrado com sucesso</string>
+    <string name="novo_jogo">Novo Jogo</string>
+    <string name="sair_do_jogo">Sair do Jogo</string>
+    <string name="ativando_gps">Atualizando posição do GPS. Em ambientes fechados pode demorar um pouco. É recomendado que você esteja em lugares em que possa ver o céu.</string>
+    <string name="eu">Eu</string>
+    <string name="buscando_jogos">Buscando jogos</string>
+    <string name="sem_jogos_disponiveis">Não existem jogos disponíveis a essa distância</string>
+    <string name="gps_desativado">GPS desativado</string>
+    <string name="nao_funciona_sem_gps"> não funcionará sem o sistema de localização ativado.</string>
+    <string name="obtendo_informacoes">Obtendo informações</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="caminhada_iniciada">Caminhada iniciada</string>
+    <string name="nome_do_jogo">Nome do jogo</string>
+    <string name="escolha_equipe">Escolha a sua equipe</string>
+    <string name="erro_registrando_jogador">Erro ao registrar jogador no jogo</string>
+    <string name="baixando_arquivos">Baixando arquivos necessários</string>
+    <string name="baixando_arquivos_erro">Erro ao baixar arquivos necessários</string>
+    <string name="gravar_audio">Gravar audio</string>
+    <string name="enviar">Enviar</string>
+    <string name="gravando">Gravando</string>
+    <string name="arquivo_enviado">Arquivo enviado</string>
+    <string name="enviando_metadados">Enviando metadados</string>
+    <string name="digite_texto">Digite o texto a ser enviado</string>
+    <string name="erro_formatacao_dados">Erro na formatação dos dados a serem enviados</string>
+    <string name="nao_pode_realizar_mec">Voce não possui pontos/life o suficiente para realizar essas mecânica.</string>
+    <string name="reproduzir">Reproduzir</string>
+    <string name="reproduzindo">Reproduzindo...</string>
+    <string name="nao_pode_capturar_jogador">Esse jogador não pode ser capturado</string>
+    <string name="escolha_jogador_title">Escolha o jogador</string>
+    <string name="objeto_compaartilhado">Objeto compartilhado com </string>
+    <string name="sem_permissao_para_realizar_mecanica">Voce não tem permissão para realizar essa mecânica.</string>
+    <string name="caminhadas">Caminhar</string>
+    <string name="em_construcao">Ainda em construção</string>
+    <string name="iniciar_caminhada">Iniciar excursão</string>
+    <string name="excursao_pajeu_title">Excursão Pajeú: audioguia</string>
+    <string name="enviando_informacoes">Enviando informações</string>
+    <string name="verifique_os_campos">Verifique os campos</string>
+    <string name="intrucoes_caminhada">Convide um amigo para ir junto. Excursão é sempre melhor acompanhado.
+        \n\nProcure alcançar os pontos marcados no mapa. Fique atento! Olhe ao redor, sinta a topografia, procure em frestas e bueiros. Desconfie de portas, muros e até do mapa. O Pajeú pode estar em lugares que você nem imagina.
+        \n\nPara saber a referência de algum conteúdo, toque no marcador. Toque na janela de informações para abrir o documento original.</string>
+
+    <!--About activity strings-->
+    <string name="titulo_como_usar">COMO USAR</string>
+    <string name="info_como_usar">Convide um amigo. Alguns lugares desta excursão são perigosos.
+        \n\nProcure alcançar os pontos marcados no mapa. Ao ativar os áudios com a sua presença, você vai encontrar o riacho Pajeú pela cidade e através de documentos.
+        \n\nFique atento! Olhe ao redor, sinta a topografia, procure em frestas e bueiros. Desconfie de portas, muros e até do mapa.
+        \n\nSe perca. Adote caminhos suspeitos, entre em becos e estacionamentos: o Pajeú pode estar em lugares que você nem imagina.
+        \n\nPara saber a fonte de algum conteúdo, toque no marcador. Toque na janela de informações para abrir o documento original.
+        \n\nBoa excursão!</string>
+
+    <string name="titulo_sobre_o_aplicativo">SOBRE O APLICATIVO</string>
+    <string name="info_sobre_o_aplicativo">Excursão Pajeú: audioguia é um aplicativo que adiciona camadas de informação ao espaço físico do riacho Pajeú.
+        \n\nO deslocamento do participante dispara uma voz maquinal que apresenta documentos do passado e do presente e projetos para um possível futuro, e, com eles, os discursos hegemônicos.
+        \n\nExcursão Pajeú convida a caminhar, ver e viver o espaço e encontrar o que não está no mapa. Convida também a questionar, a partir desse riacho apagado sobre poder e representação na produção dos espaços.\n\n\</string>
+
+    <string name="titulo_faq">FAQ</string>
+    <string name="info_faq">O que faz ser patrimônio?
+        \n\nQue destinos produz o turismo?
+        \n\nQual a cidade do CityTour?
+        \n\nO que o mapa representa?
+        \n\nO que representa o que não está no mapa?
+        \n\nO que esconde um lugar?
+        \n\nQue passagens levam ao Pajeú?</string>
+
+    <string name="titulo_creditos">CREDITOS</string>
+    <string name="info_creditos"><![CDATA[Excursão Pajeú é uma proposição produzida no contexto da pesquisa de mestrado em Artes "Parque ampliado do Pajeú" desenvolvido no Programa de Pós-graduação em Artes da Universidade Federal do Ceará com orientação do Prof. Dr. Cesar Baio.
+    <br><br>O produto aqui apresentado é resultado do trabalho conjunto dos grupos de pesquisa ACTLab – Laboratório de Pesquisa em Arte, Ciência e Tecnologia (ICA/UFC) e GREat - GREat – Grupo de Redes de Computadores, Engenharia de Software e Sistemas (UFC):
+    <br><br><b>APLICATIVO</b>
+    <br><b>Concepção, Pesquisa e Redação</b>
+    <br>Cecília Andrade
+    <br><b>Orientação</b>
+    <br>Cesar Baio
+    <br><b>Colaboração: Pesquisadores em Jogos Pervasivos</b>
+    <br>Prof. Dr. Windson Viana
+    <br>Prof. Dr. Fernando Trinta
+    <br><b>Desenvolvedores</b>
+    <br>Carleandro Nolêto
+    <br>Cristiane Ferreira
+    <br>Wendell Mendes
+    <br><b>Interface</b>
+    <br>Cecília Andrade]]></string>
+
+    <string name="site">http://www.excursaopajeu.com</string>
+
+</resources>
