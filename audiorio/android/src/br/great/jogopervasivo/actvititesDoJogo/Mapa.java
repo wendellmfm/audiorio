@@ -1,5 +1,8 @@
 package br.great.jogopervasivo.actvititesDoJogo;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -164,10 +167,28 @@ public class Mapa extends Activity {
         }
     }
 
-    private void onMarkerProximity(Marker marker){
+    private void onMarkerProximity(final Marker marker){
         //ttsManager.speakOut(((Vtextos) mecanica).getTexto());
         marker.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_ouvido));
         Toast.makeText(getApplicationContext(), marker.getTitle(), Toast.LENGTH_LONG).show();
+
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1); //change for (0,1) if you want a fade in
+        valueAnimator.setDuration(3000);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                marker.setAlpha((float) animation.getAnimatedValue());
+            }
+        });
+        valueAnimator.addListener(new AnimatorListenerAdapter()
+        {
+            @Override
+            public void onAnimationEnd(Animator animation)
+            {
+                marker.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_ouvido));
+            }
+        });
+        valueAnimator.start();
 
         ttsManager.speakOut(marker.getTitle());
     }
