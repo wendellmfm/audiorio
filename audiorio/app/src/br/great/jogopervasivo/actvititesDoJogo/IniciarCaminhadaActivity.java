@@ -2,7 +2,6 @@ package br.great.jogopervasivo.actvititesDoJogo;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -117,7 +116,6 @@ public class IniciarCaminhadaActivity extends Activity {
     }
 
     private void iniciarComponentes() {
-        //Inicializacao
         botaoCaminhadaBode = (RelativeLayout) findViewById(R.id.menu_iniciar_excursao);
         botaoCaminhadaBode.setOnTouchListener(new EfeitoClique(this));
         botaoCaminhadaBode.setOnClickListener(new View.OnClickListener() {
@@ -126,73 +124,9 @@ public class IniciarCaminhadaActivity extends Activity {
 
                 startActivity(new Intent(IniciarCaminhadaActivity.this, Mapa.class));
                 finish();
-
-//                new AsyncTask<Void, Void, Boolean>() {
-//
-//                    ProgressDialog progressDialog;
-//
-//
-//                    @Override
-//                    protected void onPreExecute() {
-//                        progressDialog = new ProgressDialog(IniciarCaminhadaActivity.this);
-//                        progressDialog.setMessage(getString(R.string.obtendo_informacoes));
-//                        progressDialog.show();
-//                    }
-//
-//                    @Override
-//                    protected Boolean doInBackground(Void... params) {
-//
-//                        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-//                        String deviceId = telephonyManager.getDeviceId();
-//
-//                        //primeiro Cria uma instancia de jogo novo
-//                        CriarNovaInstanciaDeJogo criarNovaInstanciaDeJogo = new CriarNovaInstanciaDeJogo(IniciarCaminhadaActivity.this);
-//                        criarNovaInstanciaDeJogo.criar(Integer.toString(Jogo.CAMINHADA_BODE), deviceId);
-//
-//                        //Recupera as instancias ja criadas
-//                        RecuperarInstanciasDeJogos recuperarInstanciasDeJogos = new RecuperarInstanciasDeJogos(IniciarCaminhadaActivity.this);
-//                        List<InstanciaDeJogo> instanciaDeJogoList = recuperarInstanciasDeJogos.recuperar(Jogo.CAMINHADA_BODE, InformacoesTemporarias.idJogador);
-//                        for (InstanciaDeJogo i : instanciaDeJogoList) {
-//
-//                            //Recupera instancia com o  mesmo Device ID
-//                            if (i.getNomeFicticio().equals(deviceId)) {
-//                                EscolherEquipe escolherEquipe = new EscolherEquipe(IniciarCaminhadaActivity.this);
-//                                List<Grupo> grupos = escolherEquipe.recuperarGrupos(i.getId());
-//                                InformacoesTemporarias.instanciaDeJogo = i;
-//                                InformacoesTemporarias.grupo = grupos.get(0);
-//                                Location localizacao = Armazenamento.resgatarUltimaLocalizacao(IniciarCaminhadaActivity.this);
-//                                InicializarJogo inicializarJogo = new InicializarJogo(IniciarCaminhadaActivity.this, InformacoesTemporarias.instanciaDeJogo, InformacoesTemporarias.grupo, localizacao.getLatitude(), localizacao.getLongitude());
-//                                inicializarJogo.inicializar();
-//                                InformacoesTemporarias.jogoAtual = i;
-//                                InformacoesTemporarias.grupoAtual = grupos.get(0);
-//                                Armazenamento.salvar(Constantes.JOGO_EXECUTANDO, true, IniciarCaminhadaActivity.this);//Diz que tem jogo executando;
-//                                RecuperarObjetosInventario.recuperar(IniciarCaminhadaActivity.this);
-//                                startActivity(new Intent(IniciarCaminhadaActivity.this, Mapa.class));
-//                                finish(); //Faz casting do Context para activity  e fecha a janela.
-//                                return true;
-//                            }
-//                        }
-//
-//                        return false;
-//                    }
-//
-//                    @Override
-//                    protected void onPostExecute(Boolean aBoolean) {
-//                        progressDialog.dismiss();
-//                    }
-//                }.execute();
-
             }
         });
 
-    }
-
-    private void mostrarAlerta() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.app_name);
-        builder.setMessage(R.string.em_construcao);
-        builder.setNegativeButton(R.string.OK, null);
-        builder.create().show();
     }
 
     private boolean verificarPlayServices() {

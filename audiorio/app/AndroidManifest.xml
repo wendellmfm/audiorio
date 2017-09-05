@@ -75,7 +75,6 @@
         <activity
             android:name="br.great.jogopervasivo.actvititesDoJogo.IniciarCaminhadaActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="br.great.jogopervasivo.actvititesDoJogo.InventarioActivity" />
         <activity android:name="br.great.jogopervasivo.actvititesDoJogo.AboutActivity" />
     </application>
 
