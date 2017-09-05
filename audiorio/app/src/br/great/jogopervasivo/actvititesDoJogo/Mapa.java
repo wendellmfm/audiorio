@@ -4,14 +4,20 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.provider.Settings;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -43,13 +49,12 @@ import java.util.List;
 import br.great.jogopervasivo.beans.Ponto;
 import br.great.jogopervasivo.util.Armazenamento;
 import br.great.jogopervasivo.util.Fontes;
-import br.great.jogopervasivo.util.GPSListenerManager;
 import br.great.jogopervasivo.util.TTSManager;
 import br.great.jogopervasivo.util.Textos;
 import br.ufc.great.arviewer.pajeu.R;
 
 
-public class Mapa extends Activity {
+public class Mapa extends Activity implements LocationListener{
     public static final int LIMIAR_DE_PROXIMIDADE = 20;
 
     public static final String TITLE_KEY = "title";
@@ -75,6 +80,9 @@ public class Mapa extends Activity {
 
     private static Mapa instancia;
     private boolean showPolyLine = true;
+
+    private LocationManager locationManager;
+    private ProgressDialog progressDialog;
 
     public static Mapa getInstancia() {
         return instancia;
@@ -127,7 +135,15 @@ public class Mapa extends Activity {
 
         ttsManager = new TTSManager(Mapa.this);
 
-        GPSListenerManager.getGpsListener(this).setMapa(this);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 5, this);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 5, this);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.ativando_gps));
+        progressDialog.setCancelable(false);
+        if (Armazenamento.resgatarUltimaLocalizacao(this) == null) {
+            progressDialog.show();
+        }
 
         instancia = this;
     }
@@ -169,10 +185,13 @@ public class Mapa extends Activity {
     }
 
     private void onMarkerProximity(final Marker marker){
-        marker.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_ouvido));
-        Toast.makeText(getApplicationContext(), marker.getTitle(), Toast.LENGTH_LONG).show();
+        transicaoMarcador(marker);
 
-        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1); //change for (0,1) if you want a fade in
+        ttsManager.speakOut(Textos.getTexto(marker.getTitle()));
+    }
+
+    private void transicaoMarcador(final Marker marker) {
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0.5f, 1); //change for (0,1) if you want a fade in
         valueAnimator.setDuration(3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -189,12 +208,9 @@ public class Mapa extends Activity {
             }
         });
         valueAnimator.start();
-
-        //ttsManager.speakOut(Textos.getTexto(marker.getTitle()));
     }
 
     private Marker verificarMarcadorMaisProximo(Marker marcadorJogador) {
-        //List<Marker> markers = new ArrayList<>(listMarcadores.values());
         float[] distance = new float[2];
         float resultado = Float.MAX_VALUE;
         Marker marcadorProximo = null;
@@ -240,8 +256,6 @@ public class Mapa extends Activity {
             }
             previousLocation = location;
         }
-
-        mostrarPontos();
     }
 
     private void updateMarkerWithCircle(LatLng position) {
@@ -280,10 +294,16 @@ public class Mapa extends Activity {
         super.onResume();
         configurarMapa();
 
-        Location l = Armazenamento.resgatarUltimaLocalizacao(this);
-        if (l != null) {
-            novaLocalizacao(l);
+        Location location = Armazenamento.resgatarUltimaLocalizacao(this);
+        if (location != null) {
+            novaLocalizacao(location);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        locationManager.removeUpdates(this);
     }
 
     private void configurarMapa() {
@@ -298,6 +318,15 @@ public class Mapa extends Activity {
         //Atualiza a posição da camera do mapa
         CameraUpdate camera = CameraUpdateFactory.zoomTo(25);
         mapa.moveCamera(camera);
+
+        mapa.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                if(listMarcadores.isEmpty()) {
+                    mostrarPontos();
+                }
+            }
+        });
 
         mapa.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
@@ -439,6 +468,53 @@ public class Mapa extends Activity {
     private void removePolyLineToFirstPoint(){
         if(polylineToFirstPoint != null){
             polylineToFirstPoint.remove();
+        }
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        Armazenamento.salvarLocalizacao(location, this);
+        if (progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+
+        if (mapa != null) {
+            if (location.getAccuracy() <= 10) {
+                novaLocalizacao(location);
+            }
+        }
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        if (provider.equals(LocationManager.GPS_PROVIDER)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.gps_desativado).setMessage(getString(R.string.app_name) + " " + getString(R.string.nao_funciona_sem_gps));
+            builder.setNegativeButton(R.string.sair_do_jogo
+                    , new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+            builder.setPositiveButton("Ativar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                }
+            });
+            builder.setCancelable(false).create().show();
         }
     }
 }
