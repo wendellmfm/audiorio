@@ -248,6 +248,11 @@ public class Mapa extends Activity implements LocationListener{
                 }
             }
             previousLocation = location;
+
+            if(showPolyLine) {
+                removePolyLineToFirstPoint();
+                addPolyLineToFirstPoint(marcadorJogador.getPosition(), verificarMarcadorMaisProximo(marcadorJogador));
+            }
         }
     }
 
