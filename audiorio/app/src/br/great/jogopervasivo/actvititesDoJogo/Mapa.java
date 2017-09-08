@@ -77,10 +77,11 @@ public class Mapa extends Activity implements LocationListener{
     public static TTSManager ttsManager;
 
     public boolean tocarAudio = true;
+    private boolean beginMarkerTransition = true;
 
     private static Mapa instancia;
-    private boolean showPolyLine = true;
 
+    private boolean showPolyLine = true;
     private LocationManager locationManager;
     private ProgressDialog progressDialog;
 
@@ -168,6 +169,7 @@ public class Mapa extends Activity implements LocationListener{
         }
 
         tocarAudio = true;
+        beginMarkerTransition = true;
     }
 
     private void verificarProximidadeDoMarcador(Marker marcadorJogador) {
@@ -185,7 +187,10 @@ public class Mapa extends Activity implements LocationListener{
     }
 
     private void onMarkerProximity(final Marker marker){
-        transicaoMarcador(marker);
+        if(beginMarkerTransition && !ttsManager.isSpeaking()){
+            transicaoMarcador(marker);
+            beginMarkerTransition = false;
+        }
 
         ttsManager.speakOut(Textos.getTexto(marker.getTitle()));
     }

@@ -9,7 +9,6 @@ import br.great.jogopervasivo.actvititesDoJogo.Mapa;
 
 public class TTSManager {
     public TextToSpeech tts;
-    private String TAG = "TTS MANAGER";
 
     public TTSManager(Context context) {
         tts = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
@@ -49,5 +48,9 @@ public class TTSManager {
         if(tts.isSpeaking()){
             tts.stop();
         }
+    }
+
+    public boolean isSpeaking(){
+        return tts.isSpeaking();
     }
 }
