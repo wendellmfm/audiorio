@@ -191,20 +191,13 @@ public class Mapa extends Activity implements LocationListener{
     }
 
     private void transicaoMarcador(final Marker marker) {
-        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0.5f, 1); //change for (0,1) if you want a fade in
+        marker.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_ouvido));
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1); //change for (0,1) if you want a fade in
         valueAnimator.setDuration(3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 marker.setAlpha((float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimator.addListener(new AnimatorListenerAdapter()
-        {
-            @Override
-            public void onAnimationEnd(Animator animation)
-            {
-                marker.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_ouvido));
             }
         });
         valueAnimator.start();
