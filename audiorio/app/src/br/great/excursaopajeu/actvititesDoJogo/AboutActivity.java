@@ -1,4 +1,4 @@
-package br.great.jogopervasivo.actvititesDoJogo;
+package br.great.excursaopajeu.actvititesDoJogo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

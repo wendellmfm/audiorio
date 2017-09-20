@@ -1,4 +1,4 @@
-package br.great.jogopervasivo.actvititesDoJogo;
+package br.great.excursaopajeu.actvititesDoJogo;
 
 import android.Manifest;
 import android.app.Activity;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-import br.great.jogopervasivo.util.EfeitoClique;
+import br.great.excursaopajeu.util.EfeitoClique;
 import br.ufc.great.arviewer.pajeu.R;
 
 public class IniciarCaminhadaActivity extends Activity {

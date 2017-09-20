@@ -4,7 +4,7 @@
     <string name="app_name">Excursão Pajeú</string>
     <string name="app_activities_title">Excursão Pajeú: audioguia</string>
     <string name="OK" translatable="false">OK</string>
-    <string name="sair_do_jogo">Sair do Jogo</string>
+    <string name="sair">Sair</string>
     <string name="ativando_gps">Atualizando posição do GPS. Em ambientes fechados pode demorar um pouco. É recomendado que você esteja em lugares em que possa ver o céu.</string>
     <string name="eu">Eu</string>
     <string name="gps_desativado">GPS desativado</string>
@@ -16,6 +16,7 @@
     <string name="iniciar_caminhada">Iniciar excursão</string>
     <string name="excursao_pajeu_title">Excursão Pajeú: audioguia</string>
     <string name="enviando_informacoes">Enviando informações</string>
+    <string name="sem_aplicativo_de_email">Não há aplicativo de e-mail instalado.</string>
 
     <string name="intrucoes_caminhada">Convide um amigo para ir junto. Excursão é sempre melhor acompanhado.
         \n\nProcure alcançar os pontos marcados no mapa. Fique atento! Olhe ao redor, sinta a topografia, procure em frestas e bueiros. Desconfie de portas, muros e até do mapa. O Pajeú pode estar em lugares que você nem imagina.

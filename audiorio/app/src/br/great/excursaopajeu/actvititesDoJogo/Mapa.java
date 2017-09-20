@@ -1,7 +1,5 @@
-package br.great.jogopervasivo.actvititesDoJogo;
+package br.great.excursaopajeu.actvititesDoJogo;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,6 +15,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.os.Environment;
 import android.provider.Settings;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,6 +23,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -43,18 +43,22 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import br.great.jogopervasivo.beans.Ponto;
-import br.great.jogopervasivo.util.Armazenamento;
-import br.great.jogopervasivo.util.Fontes;
-import br.great.jogopervasivo.util.TTSManager;
-import br.great.jogopervasivo.util.Textos;
+import br.great.excursaopajeu.beans.Ponto;
+import br.great.excursaopajeu.util.Armazenamento;
+import br.great.excursaopajeu.util.Fontes;
+import br.great.excursaopajeu.util.TTSManager;
+import br.great.excursaopajeu.util.Textos;
 import br.ufc.great.arviewer.pajeu.R;
 
 
-public class Mapa extends Activity implements LocationListener{
+public class Mapa extends Activity implements LocationListener {
     public static final int LIMIAR_DE_PROXIMIDADE = 20;
 
     public static final String TITLE_KEY = "title";
@@ -84,6 +88,9 @@ public class Mapa extends Activity implements LocationListener{
     private boolean showPolyLine = true;
     private LocationManager locationManager;
     private ProgressDialog progressDialog;
+
+    private static final int CAMERA_REQUEST = 1888;
+    private File file;
 
     public static Mapa getInstancia() {
         return instancia;
@@ -161,7 +168,7 @@ public class Mapa extends Activity implements LocationListener{
             Location.distanceBetween(location.getLatitude(), location.getLongitude(), marker.getPosition().latitude,
                     marker.getPosition().longitude, distance);
             if (distance[0] < LIMIAR_DE_PROXIMIDADE) {
-                showPolyLine= false;
+                showPolyLine = false;
                 removePolyLineToFirstPoint();
                 onMarkerProximity(marker);
                 return;
@@ -177,17 +184,17 @@ public class Mapa extends Activity implements LocationListener{
 
         for (Marker marker : listMarcadores) {
             Location.distanceBetween(marcadorJogador.getPosition().latitude, marcadorJogador.getPosition().longitude, marker.getPosition().latitude,
-                            marker.getPosition().longitude, distance);
+                    marker.getPosition().longitude, distance);
             if (distance[0] < LIMIAR_DE_PROXIMIDADE) {
-                showPolyLine= false;
+                showPolyLine = false;
                 removePolyLineToFirstPoint();
                 return;
             }
         }
     }
 
-    private void onMarkerProximity(final Marker marker){
-        if(beginMarkerTransition && !ttsManager.isSpeaking()){
+    private void onMarkerProximity(final Marker marker) {
+        if (beginMarkerTransition && !ttsManager.isSpeaking()) {
             transicaoMarcador(marker);
             beginMarkerTransition = false;
         }
@@ -214,12 +221,12 @@ public class Mapa extends Activity implements LocationListener{
         Marker marcadorProximo = null;
 
         for (int i = 0; i < listMarcadores.size(); i++) {
-                Location.distanceBetween(marcadorJogador.getPosition().latitude, marcadorJogador.getPosition().longitude, listMarcadores.get(i).getPosition().latitude,
-                        listMarcadores.get(i).getPosition().longitude, distance);
-                if (distance[0] < resultado) {
-                    resultado = distance[0];
-                    marcadorProximo = listMarcadores.get(i);
-                }
+            Location.distanceBetween(marcadorJogador.getPosition().latitude, marcadorJogador.getPosition().longitude, listMarcadores.get(i).getPosition().latitude,
+                    listMarcadores.get(i).getPosition().longitude, distance);
+            if (distance[0] < resultado) {
+                resultado = distance[0];
+                marcadorProximo = listMarcadores.get(i);
+            }
         }
 
         return marcadorProximo;
@@ -254,7 +261,7 @@ public class Mapa extends Activity implements LocationListener{
             }
             previousLocation = location;
 
-            if(showPolyLine) {
+            if (showPolyLine) {
                 removePolyLineToFirstPoint();
                 addPolyLineToFirstPoint(marcadorJogador.getPosition(), verificarMarcadorMaisProximo(marcadorJogador));
             }
@@ -325,7 +332,7 @@ public class Mapa extends Activity implements LocationListener{
         mapa.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
             @Override
             public void onMapLoaded() {
-                if(listMarcadores.isEmpty()) {
+                if (listMarcadores.isEmpty()) {
                     mostrarPontos();
                 }
             }
@@ -387,19 +394,19 @@ public class Mapa extends Activity implements LocationListener{
         });
     }
 
-    private void goToFonteURL(String url){
+    private void goToFonteURL(String url) {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(url));
             startActivity(intent);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
 
             return;
@@ -418,7 +425,7 @@ public class Mapa extends Activity implements LocationListener{
      * Adiciona os marcadores
      */
     public void mostrarPontos() {
-        
+
         adicionarMarcador(new Ponto("RESERVATÓRIO D'ÁGUA DO PAJEÚ", new LatLng(-3.731055, -38.523792)));
         adicionarMarcador(new Ponto("BUEIRO DA ASSEMBLEIA", new LatLng(-3.726865, -38.525080)));
         adicionarMarcador(new Ponto("CHAFARIZ DO PALÁCIO", new LatLng(-3.726640, -38.525745)));
@@ -441,24 +448,24 @@ public class Mapa extends Activity implements LocationListener{
 
         verificarProximidadeDoMarcador(marcadorJogador);
 
-        if(showPolyLine) {
+        if (showPolyLine) {
             removePolyLineToFirstPoint();
             addPolyLineToFirstPoint(marcadorJogador.getPosition(), verificarMarcadorMaisProximo(marcadorJogador));
         }
     }
 
     private void adicionarMarcador(Ponto ponto) {
-            MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.title(ponto.getNome());
-            markerOptions.position(ponto.getLocalizacao());
-            markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_nao_ouvido));
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.title(ponto.getNome());
+        markerOptions.position(ponto.getLocalizacao());
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_nao_ouvido));
 
-            Marker marker = mapa.addMarker(markerOptions);
-            listMarcadores.add(marker);
+        Marker marker = mapa.addMarker(markerOptions);
+        listMarcadores.add(marker);
     }
 
     private void addPolyLineToFirstPoint(LatLng userPosition, Marker firstPointMarker) {
-        if(firstPointMarker == null){
+        if (firstPointMarker == null) {
             return;
         }
 
@@ -468,9 +475,69 @@ public class Mapa extends Activity implements LocationListener{
         polylineToFirstPoint = mapa.addPolyline(polylineOptions);
     }
 
-    private void removePolyLineToFirstPoint(){
-        if(polylineToFirstPoint != null){
+    private void removePolyLineToFirstPoint() {
+        if (polylineToFirstPoint != null) {
             polylineToFirstPoint.remove();
+        }
+    }
+
+    public void takePicture(View view) {
+        try {
+            file = createImageFile();
+
+            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            cameraIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+
+            startActivityForResult(cameraIntent, CAMERA_REQUEST);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public File getAlbumDir() {
+        File storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Audiorio/");
+
+        if (!storageDir.exists()) {
+            storageDir.mkdirs();
+        }
+
+        return storageDir;
+    }
+
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = getAlbumDir().toString() + "/" + timeStamp + ".jpg";
+        File image = new File(imageFileName);
+
+        return image;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("message/rfc822");
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"wendell.mfm@gmail.com"});
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Foto");
+            //intent.putExtra(Intent.EXTRA_TEXT   , "body of email");
+
+            Uri uri = Uri.fromFile(file);
+            intent.putExtra(Intent.EXTRA_STREAM, uri);
+            try {
+                startActivity(Intent.createChooser(intent, "Enviar foto:"));
+            } catch (android.content.ActivityNotFoundException ex) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.sem_aplicativo_de_email).setMessage(getString(R.string.app_name) + " " + getString(R.string.nao_funciona_sem_gps));
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                });
+                builder.setCancelable(false).create().show();
+            }
         }
     }
 
@@ -503,7 +570,7 @@ public class Mapa extends Activity implements LocationListener{
         if (provider.equals(LocationManager.GPS_PROVIDER)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.gps_desativado).setMessage(getString(R.string.app_name) + " " + getString(R.string.nao_funciona_sem_gps));
-            builder.setNegativeButton(R.string.sair_do_jogo
+            builder.setNegativeButton(R.string.sair
                     , new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

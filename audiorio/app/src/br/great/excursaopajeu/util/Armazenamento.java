@@ -1,4 +1,4 @@
-package br.great.jogopervasivo.util;
+package br.great.excursaopajeu.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 
-import br.great.jogopervasivo.actvititesDoJogo.SplashScreen;
+import br.great.excursaopajeu.actvititesDoJogo.SplashScreen;
 
 //import br.great.jogopervasivo.actvititesDoJogo.ConfiguracoesActivity;
 

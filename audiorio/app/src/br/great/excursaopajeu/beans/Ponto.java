@@ -1,4 +1,4 @@
-package br.great.jogopervasivo.beans;
+package br.great.excursaopajeu.beans;
 
 import com.google.android.gms.maps.model.LatLng;
 

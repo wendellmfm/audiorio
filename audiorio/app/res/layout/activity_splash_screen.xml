@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="#00529b"
     android:layout_height="match_parent"
-    tools:context="br.great.jogopervasivo.actvititesDoJogo.SplashScreen">
+    tools:context="br.great.excursaopajeu.actvititesDoJogo.SplashScreen">
 
     <ImageView
         android:src="@mipmap/splash_screen"

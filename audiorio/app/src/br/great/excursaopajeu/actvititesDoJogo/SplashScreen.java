@@ -1,4 +1,4 @@
-package br.great.jogopervasivo.actvititesDoJogo;
+package br.great.excursaopajeu.actvititesDoJogo;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-import br.great.jogopervasivo.util.SobrescreverFonte;
+import br.great.excursaopajeu.util.SobrescreverFonte;
 import br.ufc.great.arviewer.pajeu.R;
 
 public class SplashScreen extends Activity {

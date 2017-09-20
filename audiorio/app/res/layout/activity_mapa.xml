@@ -4,7 +4,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.great.jogopervasivo.actvititesDoJogo.Mapa">
+    tools:context="br.great.excursaopajeu.actvititesDoJogo.Mapa">
     <!-- The main content view -->
     <FrameLayout
         android:id="@+id/content_frame"
@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
 
-            tools:context="br.great.jogopervasivo.actvititesDoJogo.Mapa">
+            tools:context="br.great.excursaopajeu.actvititesDoJogo.Mapa">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -44,6 +44,16 @@
                     android:text="@string/excursao_pajeu_title"
                     android:textColor="@color/texto"
                     android:textSize="@dimen/texto_grande" />
+
+                <ImageButton
+                    android:id="@+id/cameraButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="takePicture"
+                    android:src="@android:drawable/ic_menu_camera" />
             </RelativeLayout>
 
             <fragment

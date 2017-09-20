@@ -1,11 +1,11 @@
-package br.great.jogopervasivo.util;
+package br.great.excursaopajeu.util;
 
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
 
 import java.util.Locale;
 
-import br.great.jogopervasivo.actvititesDoJogo.Mapa;
+import br.great.excursaopajeu.actvititesDoJogo.Mapa;
 
 public class TTSManager {
     public TextToSpeech tts;

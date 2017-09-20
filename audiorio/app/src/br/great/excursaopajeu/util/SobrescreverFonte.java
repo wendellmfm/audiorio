@@ -1,4 +1,4 @@
-package br.great.jogopervasivo.util;
+package br.great.excursaopajeu.util;
 
 import android.content.Context;
 import android.graphics.Typeface;
