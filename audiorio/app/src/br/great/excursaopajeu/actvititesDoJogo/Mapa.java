@@ -23,11 +23,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -516,18 +514,19 @@ public class Mapa extends Activity implements LocationListener {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
 
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("message/rfc822");
-            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"wendell.mfm@gmail.com"});
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Foto");
-            //intent.putExtra(Intent.EXTRA_TEXT   , "body of email");
+            String mailto = "mailto:excursaopajeu@gmail.com" +
+                    "?subject=" + Uri.encode("Foto Excursão Pajeú") +
+                    "&body=" + Uri.encode("Fui ao Pajeú e lembrei de você.");
+
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse(mailto));
 
             Uri uri = Uri.fromFile(file);
             intent.putExtra(Intent.EXTRA_STREAM, uri);
             try {
                 startActivity(Intent.createChooser(intent, "Enviar foto:"));
             } catch (android.content.ActivityNotFoundException ex) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog);
                 builder.setTitle(R.string.sem_aplicativo_de_email).setMessage(getString(R.string.app_name) + " " + getString(R.string.nao_funciona_sem_gps));
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -568,22 +567,21 @@ public class Mapa extends Activity implements LocationListener {
     @Override
     public void onProviderDisabled(String provider) {
         if (provider.equals(LocationManager.GPS_PROVIDER)) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog);
             builder.setTitle(R.string.gps_desativado).setMessage(getString(R.string.app_name) + " " + getString(R.string.nao_funciona_sem_gps));
-            builder.setNegativeButton(R.string.sair
-                    , new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    });
-            builder.setPositiveButton("Ativar", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
+
+            builder.setPositiveButton(R.string.ativar, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                 }
             });
+            builder.setNegativeButton(R.string.sair, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    finish();
+                }
+            });
+
             builder.setCancelable(false).create().show();
         }
     }

@@ -4,6 +4,7 @@
     <string name="app_name">Excursão Pajeú</string>
     <string name="app_activities_title">Excursão Pajeú: audioguia</string>
     <string name="OK" translatable="false">OK</string>
+    <string name="ativar">Ativar</string>
     <string name="sair">Sair</string>
     <string name="ativando_gps">Atualizando posição do GPS. Em ambientes fechados pode demorar um pouco. É recomendado que você esteja em lugares em que possa ver o céu.</string>
     <string name="eu">Eu</string>
