@@ -84,6 +84,8 @@ public class Mapa extends Activity implements LocationListener {
     private static Mapa instancia;
 
     private boolean showPolyLine = true;
+    private boolean pontosAdicionados = false;
+    private boolean marcadorJogadorAdicionado = false;
     private LocationManager locationManager;
     private ProgressDialog progressDialog;
 
@@ -160,6 +162,10 @@ public class Mapa extends Activity implements LocationListener {
     }
 
     private void verificarProximidadeDoMarcador(Location location) {
+        if(marcadorJogadorAdicionado && pontosAdicionados){
+            mostrarPontoMaisProximo();
+        }
+
         float[] distance = new float[2];
 
         for (Marker marker : listMarcadores) {
@@ -258,6 +264,10 @@ public class Mapa extends Activity implements LocationListener {
                 }
             }
             previousLocation = location;
+
+            if(!marcadorJogadorAdicionado) {
+                marcadorJogadorAdicionado = true;
+            }
 
             if (showPolyLine) {
                 removePolyLineToFirstPoint();
@@ -443,13 +453,14 @@ public class Mapa extends Activity implements LocationListener {
         adicionarMarcador(new Ponto("TERCEIRO PLANO", new LatLng(-3.721542, -38.526187)));
         adicionarMarcador(new Ponto("BELLO RIO DE ÁGUA DOCE", new LatLng(-3.722628, -38.523973)));
 
-
-        verificarProximidadeDoMarcador(marcadorJogador);
-
-        if (showPolyLine) {
-            removePolyLineToFirstPoint();
-            addPolyLineToFirstPoint(marcadorJogador.getPosition(), verificarMarcadorMaisProximo(marcadorJogador));
+        if(!pontosAdicionados) {
+            pontosAdicionados = true;
         }
+
+        if(marcadorJogadorAdicionado && pontosAdicionados){
+            mostrarPontoMaisProximo();
+        }
+
     }
 
     private void adicionarMarcador(Ponto ponto) {
@@ -460,6 +471,15 @@ public class Mapa extends Activity implements LocationListener {
 
         Marker marker = mapa.addMarker(markerOptions);
         listMarcadores.add(marker);
+    }
+
+    private void mostrarPontoMaisProximo(){
+        verificarProximidadeDoMarcador(marcadorJogador);
+
+        if (showPolyLine) {
+            removePolyLineToFirstPoint();
+            addPolyLineToFirstPoint(marcadorJogador.getPosition(), verificarMarcadorMaisProximo(marcadorJogador));
+        }
     }
 
     private void addPolyLineToFirstPoint(LatLng userPosition, Marker firstPointMarker) {
