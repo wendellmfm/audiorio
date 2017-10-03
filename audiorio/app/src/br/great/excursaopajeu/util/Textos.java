@@ -2,9 +2,28 @@ package br.great.excursaopajeu.util;
 
 public class Textos {
 
+    public static final String RESERVATÓRIO_D_ÁGUA_DO_PAJEÚ = "RESERVATÓRIO D'ÁGUA DO PAJEÚ";
+    public static final String BUEIRO_DA_ASSEMBLEIA = "BUEIRO DA ASSEMBLEIA";
+    public static final String CHAFARIZ_DO_PALÁCIO = "CHAFARIZ DO PALÁCIO";
+    public static final String COLLECÇÃO_D_ÁGUAS = "COLLECÇÃO D'ÁGUAS";
+    public static final String PARNASO = "PARNASO";
+    public static final String PARQUE_PAJEÚ = "PARQUE PAJEÚ";
+    public static final String EXALAÇÕES_MEPHETICAS = "EXALAÇÕES MEPHETICAS";
+    public static final String RUÍNA_DO_AÇUDE = "RUÍNA DO AÇUDE";
+    public static final String PARQUE_DAS_ESCULTURAS = "PARQUE DAS ESCULTURAS";
+    public static final String POSTURAS_CAMARAIS_DE_1835 = "POSTURAS CAMARAIS DE 1835";
+    public static final String POSTURAS_CAMARAIS_DE_1844 = "POSTURAS CAMARAIS DE 1844";
+    public static final String PROIBIDO_APRESENTAR_SE_NU = "PROIBIDO APRESENTAR-SE NU";
+    public static final String PROJETO_CENTRO_BELO = "PROJETO CENTRO BELO";
+    public static final String FORTE_DE_AREIA = "FORTE DE AREIA";
+    public static final String OBRA = "OBRA";
+    public static final String PARQUE_J_DA_PENHA = "PARQUE J. DA PENHA";
+    public static final String TERCEIRO_PLANO = "TERCEIRO PLANO";
+    public static final String BELLO_RIO_DE_ÁGUA_DOCE = "BELLO RIO DE ÁGUA DOCE";
+
     public static  String getTexto(String nomePonto){
         switch (nomePonto.toUpperCase()){
-            case "RESERVATÓRIO D'ÁGUA":
+            case RESERVATÓRIO_D_ÁGUA_DO_PAJEÚ:
                 return "Havia grande escassez de água, tanto potável quanto de gasto na capital, a não ser o riacho Jacarecanga, só corrente pelo inverno, o mais\n" +
                         "eram poços que secavam pelo verão, quase sempre muito longo, senão continuado pelas secas, entre nós, periodicamente certas.\n" +
                         "Alencar não perdeu tempo a prover ao mal.\n" +
@@ -22,7 +41,7 @@ public class Textos {
                         "Ao centro da população mais desvalida, onde mais se notava a falta d’água, perto actualmente do colégio da imaculada conceição, Alencar\n" +
                         "fez abrir um grande poço, que logo tomou, pela grande serventia que prestava, o nome significativo de cacimba do povo.";
 
-            case "BUEIRO DA ASSEMBLEIA":
+            case BUEIRO_DA_ASSEMBLEIA:
                 return "Segunda Secção, Palácio do Governo do Ceará, número 11, Em 12 de Fevereiro de\n" +
                         "1866.\n" +
                         "Atendendo ao que vossa mercê representa em seu ofício de 29 do próximo passado\n" +
@@ -35,7 +54,7 @@ public class Textos {
                         "\n" +
                         "Ao Sr. Engenheiro da Província.";
 
-            case "CHAFARIZ DO PALÁCIO":
+            case CHAFARIZ_DO_PALÁCIO:
                 return "Estão satisfeitos os desejos dos detractores do ilustre senador Alencar! Desde a\n" +
                         "administração do Sr. Manoel Felisardo, que trabalham por destruir a obra do Chafariz do\n" +
                         "Largo do Palácio, já quebrando e entupindo as bicas, já escavando o paredão, já finalmente\n" +
@@ -54,7 +73,7 @@ public class Textos {
                         "muito de propósito deixou de dar-lhe execução, consentindo até que ali se fizessem\n" +
                         "imundos despejos.";
 
-            case "COLLECÇÃO D'ÁGUAS":
+            case COLLECÇÃO_D_ÁGUAS:
                 return "Na Arábia deserta vemos que nunca chove, porque o Simoun não pode levar às altas regiões\n" +
                         "atmosféricas vapores aquosos que lá não existem; Na Petra deserta, porém, a abundância é\n" +
                         "admirável, porque Yemen dá em troca ao sol ardente de seu clima os vapores aquosos dos\n" +
@@ -78,7 +97,7 @@ public class Textos {
                         "Os açudes, ou depósitos d&#39;água, não tem só por fim das de beber a quem tiver sede, serve\n" +
                         "também para dar de comer a quem tiver fome.";
 
-            case "PARNASO":
+            case PARNASO:
                 return "Na rua do pocinho, onde passa o córrego, que recebe as ágoas do Pajeú, reunem-se grande\n" +
                         "número de lavandeiras, que para comodidade, expõe-se às vistas do público no estado de nudez\n" +
                         "em que nasceram.\n" +
@@ -86,7 +105,7 @@ public class Textos {
                         "Os moradores as ruas próximas e os transeuntes não estão dispostos a apreciarem, sempre com\n" +
                         "paciência, aquela espécie de pequeno e extravagante parnaso.";
 
-            case "PARQUE PAJEÚ":
+            case PARQUE_PAJEÚ:
                 return "DECRETO Número 13.290, DE 14 DE JANEIRO DE 2014.\n" +
                         "Dispõe sobre a criação do Parque Linear do Riacho Pajeú.\n" +
                         "O PREFEITO MUNICIPAL DE FORTALEZA, CAPITAL DO ESTADO DO CEARÁ, no uso de suas\n" +
@@ -106,7 +125,7 @@ public class Textos {
                         "urbana pertencente ao Sistema Municipal de áreas Verdes, formado por alguns de seus trechos,\n" +
                         "somando 695 metros do riacho de mesmo nome.";
 
-            case "EXALAÇÕES MEPHETICAS":
+            case EXALAÇÕES_MEPHETICAS:
                 return "Expediente do dia 16 de janeiro de 1861\n" +
                         "Ao delegado da capital – representando-me à câmara municipal d’esta cidade, que em alguns quintaes da rua dos " +
                         "Mercadores se encontra entupido de areia e imundícies o leito do arroio que divide o bairro d’esta cidade, do Oiteiro, " +
@@ -115,7 +134,7 @@ public class Textos {
                         "indicado com alguns calcetas e examinar desde o Pajeú até o chafariz, dando esgoto às ágoas e mandando fazer a limpesa necessária " +
                         "em benefício da saúde pública d’esta capital.\n";
 
-            case "RUÍNA DO AÇUDE":
+            case RUÍNA_DO_AÇUDE:
                 return "Publicação solicitada\n" +
                         "O Pedro segundo, papel, arvorou-se a um engenheiro fiscal de todas as obras públicas passadas,\n" +
                         "presentes e futuras...responsabiliza-me por tudo quanto se tem feito, se faz e se fizer de máo. Não\n" +
@@ -130,7 +149,7 @@ public class Textos {
                         "segundo não é somente levado pela ignorância das cousas que escreve, mas também por um tanto\n" +
                         "de maldade.";
 
-            case "PARQUE DAS ESCULTURAS":
+            case PARQUE_DAS_ESCULTURAS:
                 return "DIÁRIO DO NORDESTE\n" +
                         "19 de março de 2009\n" +
                         "DESCASO\n" +
@@ -162,7 +181,7 @@ public class Textos {
                         "área.\n" +
                         "Atualmente, a CDL cuida da limpeza e da jardinagem.";
 
-            case "POSTURAS CAMARAIS DE 1835":
+            case POSTURAS_CAMARAIS_DE_1835:
                 return "Posturas da Câmara Municipal da Cidade de Fortaleza Aprovadas pela Assembléia\n" +
                         "Legislativa Provincial – 1835\n" +
                         "16\n" +
@@ -183,7 +202,7 @@ public class Textos {
                         "pelo que todo aquele, que usar de tinguijadas, será condenado em vinte mil reis para as\n" +
                         "despesas do Conselho, ou oito dias de prisão.";
 
-            case "POSTURAS CAMARAIS DE 1844":
+            case POSTURAS_CAMARAIS_DE_1844:
                 return "Lei Número 328, de 19 de Agosto de 1844\n" +
                         "Artigo 71. Fica proibida a lavagem de roupa ou de qualquer objeto, que concorra para\n" +
                         "putrefacção das aguas, nos lugares que não tem esgotadouros que ofereçam uma corrente\n" +
@@ -193,13 +212,13 @@ public class Textos {
                         "exceda pelo menos a sessenta palmos. Os contraventores, além da demolição de tudo à sua\n" +
                         "custa, sofrerão a multa de quatro mil réis, ou oito dias de prisão.";
 
-            case "PROIBIDO APRESENTAR-SE NU":
+            case PROIBIDO_APRESENTAR_SE_NU:
                 return "Lei Número 328, de 19 de Agosto de 1844\n" +
                         "Artigo 70. Fica prohibido a qualquer pessoa apresentar-se nua, das seis da manhã às seis da\n" +
                         "tarde, nos lagos ou riachos desta cidade, sob qualquer pretexto que seja. Os contraventores\n" +
                         "soffrerão a multa de quatro mil réis, ou oito dias de prisão.";
 
-            case "PROJETO CENTRO BELO":
+            case PROJETO_CENTRO_BELO:
                 return "PROJETO DE URBANIZAÇÃO DO RIACHO PAJEÚ\n" +
                         "SECRETARIA MUNICIPAL DE DESENVOLVIMENTO URBANO E INFRA-ESTRUTURA - SEINF\n" +
                         "NOVEMBRO - 2005\n" +
@@ -238,7 +257,7 @@ public class Textos {
                         "E INFRA-ESTRUTURA - SEINFi\n" +
                         "Fone: 3452. 1791 / 1770.";
 
-            case "FORTE DE AREIA":
+            case FORTE_DE_AREIA:
                 return "A cidade do Seara é construída sobre areia pesada, na forma de um quadrado, com quatro\n" +
                         "ruas que partem dele, e tem uma longa rua adicional do lado norte desse quadrado,\n" +
                         "Que corre em uma direção paralela, mas é desconectado dele.\n" +
@@ -271,7 +290,7 @@ public class Textos {
                         "of rock&#39;s afford very little protection to\n" +
                         "vessels riding at anchor upon the coast.";
 
-            case "OBRA":
+            case OBRA:
                 return "Ilustríssimo e Excelentíssimo Senhor\n" +
                         "Levo ao conhecimento de Vossa excelência que o açude\n" +
                         "do Pajeú acha-se esgotado e limpo da vasia que cobria\n" +
@@ -324,7 +343,7 @@ public class Textos {
                         "O Engenheiro\n" +
                         "Adolpho Herbster";
 
-            case "PARQUE J. DA PENHA":
+            case PARQUE_J_DA_PENHA:
                 return "DECRETO Número 13.290, DE 14 DE JANEIRO DE 2014.\n" +
                         "Dispõe sobre a criação do Parque Linear do Riacho Pajeú.\n" +
                         "O PREFEITO MUNICIPAL DE FORTALEZA, CAPITAL DO ESTADO DO CEARÁ, no uso de suas\n" +
@@ -344,7 +363,7 @@ public class Textos {
                         "urbana pertencente ao Sistema Municipal de áreas Verdes, formado por alguns de seus trechos,\n" +
                         "somando 695 metros do riacho de mesmo nome.";
 
-            case "TERCEIRO PLANO":
+            case TERCEIRO_PLANO:
                 return "O velho Passeio Público de Fortaleza, outrora escalonado em três planos sôbre o mar e o\n" +
                         "principal logradouro da cidade, hoje ocupando somente o plano superior e entregue a um\n" +
                         "triste abandono, assenta no tôpo da colina que os conquistadores holandeses denominaram\n" +
@@ -378,7 +397,7 @@ public class Textos {
                         "sol os buganvilles e o branco gesto das estátuas mutiladas ou maltratadas ficou parecendo\n" +
                         "ali um adeus triste e mudo aos tempos idos.";
 
-            case "BELLO RIO DE ÁGUA DOCE":
+            case BELLO_RIO_DE_ÁGUA_DOCE:
                 return "No dia 6 desembarcaram os soldados restantes o o commandante Maez pôs em boa ordem\n" +
                         "as duas companhias; ocupados com obter informações dos índios, não podemos ainda\n" +
                         "ontem, como nos cumpria, escolher um sitio onde mais convenientemente assentássemos\n" +

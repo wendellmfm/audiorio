@@ -9,15 +9,6 @@ import android.location.LocationManager;
 
 import br.great.excursaopajeu.actvitites.SplashScreen;
 
-//import br.great.jogopervasivo.actvititesDoJogo.ConfiguracoesActivity;
-
-/**
- * Created by messiaslima on 02/02/2015.
- *
- * @author messiaslima
- * @version 1.0
- * @since 1.0
- */
 public class Armazenamento {
     public static final String JOGADOR_LATITUDE = "jogador_latitude";
     public static final String JOGADOR_LONGITUDE = "jogador_longitude";
@@ -36,8 +27,6 @@ public class Armazenamento {
         editor.commit();
     }
 
-//
-//    //resgatar ultima posição salva
 
     /**
      * Recupera a ultima localizacao salva no sharedPreferences

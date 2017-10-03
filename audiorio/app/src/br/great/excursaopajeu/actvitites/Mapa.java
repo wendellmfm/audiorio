@@ -430,24 +430,24 @@ public class Mapa extends Activity implements LocationListener {
      */
     public void mostrarPontos() {
 
-        adicionarMarcador(new Ponto("RESERVATÓRIO D'ÁGUA DO PAJEÚ", new LatLng(-3.731055, -38.523792)));
-        adicionarMarcador(new Ponto("BUEIRO DA ASSEMBLEIA", new LatLng(-3.726865, -38.525080)));
-        adicionarMarcador(new Ponto("CHAFARIZ DO PALÁCIO", new LatLng(-3.726640, -38.525745)));
-        adicionarMarcador(new Ponto("COLLECÇÃO D'ÁGUAS", new LatLng(-3.731218, -38.523375)));
-        adicionarMarcador(new Ponto("PARNASO", new LatLng(-3.727874, -38.525082)));
-        adicionarMarcador(new Ponto("PARQUE J. DA PENHA", new LatLng(-3.734400, -38.519165)));
-        adicionarMarcador(new Ponto("EXALAÇÕES MEPHETICAS", new LatLng(-3.726040, -38.525030)));
-        adicionarMarcador(new Ponto("RUÍNA DO AÇUDE", new LatLng(-3.730465, -38.524288)));
-        adicionarMarcador(new Ponto("PARQUE DAS ESCULTURAS", new LatLng(-3.731416, -38.522443)));
-        adicionarMarcador(new Ponto("POSTURAS CAMARAIS DE 1835", new LatLng(-3.729369, -38.524890)));
-        adicionarMarcador(new Ponto("POSTURAS CAMARAIS DE 1844", new LatLng(-3.725806, -38.524830)));
-        adicionarMarcador(new Ponto("PROIBIDO APRESENTAR-SE NU", new LatLng(-3.728295, -38.525033)));
-        adicionarMarcador(new Ponto("PROJETO CENTRO BELO", new LatLng(-3.725545, -38.524972)));
-        adicionarMarcador(new Ponto("FORTE DE AREIA", new LatLng(-3.722657, -38.524890)));
-        adicionarMarcador(new Ponto("OBRA", new LatLng(-3.730758, -38.524026)));
-        adicionarMarcador(new Ponto("PARQUE PAJEÚ", new LatLng(-3.723882, -38.523778)));
-        adicionarMarcador(new Ponto("TERCEIRO PLANO", new LatLng(-3.721542, -38.526187)));
-        adicionarMarcador(new Ponto("BELLO RIO DE ÁGUA DOCE", new LatLng(-3.722628, -38.523973)));
+        adicionarMarcador(new Ponto(Textos.RESERVATÓRIO_D_ÁGUA_DO_PAJEÚ, new LatLng(-3.731055, -38.523792)));
+        adicionarMarcador(new Ponto(Textos.BUEIRO_DA_ASSEMBLEIA, new LatLng(-3.726865, -38.525080)));
+        adicionarMarcador(new Ponto(Textos.CHAFARIZ_DO_PALÁCIO, new LatLng(-3.726640, -38.525745)));
+        adicionarMarcador(new Ponto(Textos.COLLECÇÃO_D_ÁGUAS, new LatLng(-3.731218, -38.523375)));
+        adicionarMarcador(new Ponto(Textos.PARNASO, new LatLng(-3.727874, -38.525082)));
+        adicionarMarcador(new Ponto(Textos.PARQUE_J_DA_PENHA, new LatLng(-3.734400, -38.519165)));
+        adicionarMarcador(new Ponto(Textos.EXALAÇÕES_MEPHETICAS, new LatLng(-3.726040, -38.525030)));
+        adicionarMarcador(new Ponto(Textos.RUÍNA_DO_AÇUDE, new LatLng(-3.730465, -38.524288)));
+        adicionarMarcador(new Ponto(Textos.PARQUE_DAS_ESCULTURAS, new LatLng(-3.731416, -38.522443)));
+        adicionarMarcador(new Ponto(Textos.POSTURAS_CAMARAIS_DE_1835, new LatLng(-3.729369, -38.524890)));
+        adicionarMarcador(new Ponto(Textos.POSTURAS_CAMARAIS_DE_1844, new LatLng(-3.725806, -38.524830)));
+        adicionarMarcador(new Ponto(Textos.PROIBIDO_APRESENTAR_SE_NU, new LatLng(-3.728295, -38.525033)));
+        adicionarMarcador(new Ponto(Textos.PROJETO_CENTRO_BELO, new LatLng(-3.725545, -38.524972)));
+        adicionarMarcador(new Ponto(Textos.FORTE_DE_AREIA, new LatLng(-3.722657, -38.524890)));
+        adicionarMarcador(new Ponto(Textos.OBRA, new LatLng(-3.730758, -38.524026)));
+        adicionarMarcador(new Ponto(Textos.PARQUE_PAJEÚ, new LatLng(-3.723882, -38.523778)));
+        adicionarMarcador(new Ponto(Textos.TERCEIRO_PLANO, new LatLng(-3.721542, -38.526187)));
+        adicionarMarcador(new Ponto(Textos.BELLO_RIO_DE_ÁGUA_DOCE, new LatLng(-3.722628, -38.523973)));
 
         if(!pontosAdicionados) {
             pontosAdicionados = true;
