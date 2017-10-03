@@ -48,7 +48,7 @@
             android:value="splitActionBarWhenNarrow" />
 
         <activity
-            android:name="br.great.excursaopajeu.actvititesDoJogo.SplashScreen"
+            android:name="br.great.excursaopajeu.actvitites.SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,15 +57,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.great.excursaopajeu.actvititesDoJogo.Mapa"
+            android:name="br.great.excursaopajeu.actvitites.Mapa"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.great.excursaopajeu.actvititesDoJogo.MainActivity"
+            android:name="br.great.excursaopajeu.actvitites.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.great.excursaopajeu.actvititesDoJogo.IniciarCaminhadaActivity"
+            android:name="br.great.excursaopajeu.actvitites.IniciarCaminhadaActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="br.great.excursaopajeu.actvititesDoJogo.AboutActivity" />
+        <activity android:name="br.great.excursaopajeu.actvitites.AboutActivity" />
     </application>
 
 </manifest>

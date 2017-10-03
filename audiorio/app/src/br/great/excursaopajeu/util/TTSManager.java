@@ -5,7 +5,7 @@ import android.speech.tts.TextToSpeech;
 
 import java.util.Locale;
 
-import br.great.excursaopajeu.actvititesDoJogo.Mapa;
+import br.great.excursaopajeu.actvitites.Mapa;
 
 public class TTSManager {
     public TextToSpeech tts;

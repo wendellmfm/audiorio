@@ -1,4 +1,4 @@
-package br.great.excursaopajeu.actvititesDoJogo;
+package br.great.excursaopajeu.actvitites;
 
 import android.app.Activity;
 import android.content.Intent;

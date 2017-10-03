@@ -1,4 +1,4 @@
-package br.great.excursaopajeu.actvititesDoJogo;
+package br.great.excursaopajeu.actvitites;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
@@ -207,7 +207,7 @@ public class Mapa extends Activity implements LocationListener {
     }
 
     private void transicaoMarcador(final Marker marker) {
-        marker.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_ouvido));
+        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_audio_ouvido));
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1); //change for (0,1) if you want a fade in
         valueAnimator.setDuration(3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -243,7 +243,7 @@ public class Mapa extends Activity implements LocationListener {
             if (markerOptions == null) {
                 markerOptions = new MarkerOptions();
             }
-            markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_jogador))
+            markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_jogador))
                     .title(getString(R.string.eu))
                     .anchor(0.5f, 0.5f)
                     .position(new LatLng(location.getLatitude(), location.getLongitude()));
@@ -288,7 +288,6 @@ public class Mapa extends Activity implements LocationListener {
         circle = mapa.addCircle(circleOptions);
     }
 
-    //Mover camera
     private void moverCamera(Location location) {
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -325,15 +324,12 @@ public class Mapa extends Activity implements LocationListener {
     }
 
     private void configurarMapa() {
-        //Criando objetos de manipulação dos mapas
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapa = mapFragment.getMap();
 
-        //Tipo de visualização dos mapas
         mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mapa.setBuildingsEnabled(true);
 
-        //Atualiza a posição da camera do mapa
         CameraUpdate camera = CameraUpdateFactory.zoomTo(25);
         mapa.moveCamera(camera);
 
@@ -467,7 +463,7 @@ public class Mapa extends Activity implements LocationListener {
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.title(ponto.getNome());
         markerOptions.position(ponto.getLocalizacao());
-        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_audio_nao_ouvido));
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_audio_nao_ouvido));
 
         Marker marker = mapa.addMarker(markerOptions);
         listMarcadores.add(marker);

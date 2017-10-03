@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 
-import br.great.excursaopajeu.actvititesDoJogo.SplashScreen;
+import br.great.excursaopajeu.actvitites.SplashScreen;
 
 //import br.great.jogopervasivo.actvititesDoJogo.ConfiguracoesActivity;
 
