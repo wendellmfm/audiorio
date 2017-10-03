@@ -22,7 +22,7 @@ public class IniciarCaminhadaActivity extends Activity {
 
     private static IniciarCaminhadaActivity instancia;
 
-    private RelativeLayout botaoCaminhadaBode;
+    private RelativeLayout botaoIniciarExcursao;
 
     public static IniciarCaminhadaActivity getInstancia(){
         return instancia;
@@ -58,9 +58,9 @@ public class IniciarCaminhadaActivity extends Activity {
     }
 
     private void iniciarComponentes() {
-        botaoCaminhadaBode = (RelativeLayout) findViewById(R.id.menu_iniciar_excursao);
-        botaoCaminhadaBode.setOnTouchListener(new EfeitoClique(this));
-        botaoCaminhadaBode.setOnClickListener(new View.OnClickListener() {
+        botaoIniciarExcursao = (RelativeLayout) findViewById(R.id.menu_iniciar_excursao);
+        botaoIniciarExcursao.setOnTouchListener(new EfeitoClique(this));
+        botaoIniciarExcursao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

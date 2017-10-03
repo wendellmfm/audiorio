@@ -17,6 +17,7 @@ import android.os.Bundle;
 
 import android.os.Environment;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -283,7 +284,7 @@ public class Mapa extends Activity implements LocationListener {
     private void drawMarkerWithCircle(LatLng position) {
         CircleOptions circleOptions = new CircleOptions().center(position)
                 .radius(LIMIAR_DE_PROXIMIDADE)
-                .strokeColor(getResources().getColor(R.color.gray_circle))
+                .strokeColor(ContextCompat.getColor(Mapa.this, R.color.gray_circle))
                 .strokeWidth(5);
         circle = mapa.addCircle(circleOptions);
     }
@@ -448,12 +449,14 @@ public class Mapa extends Activity implements LocationListener {
         adicionarMarcador(new Ponto(Textos.PARQUE_PAJEÚ, new LatLng(-3.723882, -38.523778)));
         adicionarMarcador(new Ponto(Textos.TERCEIRO_PLANO, new LatLng(-3.721542, -38.526187)));
         adicionarMarcador(new Ponto(Textos.BELLO_RIO_DE_ÁGUA_DOCE, new LatLng(-3.722628, -38.523973)));
+        adicionarMarcador(new Ponto(Textos.RELATORIO_MANSOUR, new LatLng(-3.740938, -38.505251)));
+        adicionarMarcador(new Ponto(Textos.RELATORIO_INSPECAO, new LatLng(-3.720197, -38.522739)));
 
         if(!pontosAdicionados) {
             pontosAdicionados = true;
         }
 
-        if(marcadorJogadorAdicionado && pontosAdicionados){
+        if(marcadorJogadorAdicionado){
             mostrarPontoMaisProximo();
         }
 

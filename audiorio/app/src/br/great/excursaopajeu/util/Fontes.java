@@ -59,6 +59,12 @@ public class Fontes {
 
             case Textos.BELLO_RIO_DE_ÁGUA_DOCE:
                 return "BECK, Matias [Mathias ou Mathijs]. “Diário da expedição de Matias Beck ao Ceará em 1649. Tradução do holandês por Alfredo de Carvalho” in Revista do Instituto do Ceará. Fortaleza, tomo XVII, 1903, pp. 325-405. Disponível em: https://pt.wikisource.org/wiki/Ficheiro:Diario_da_expedi%C3%A7%C3%A3o_de_Mathias_Beck.pdf#filelinks";
+
+            case Textos.RELATORIO_MANSOUR:
+                return "ELIAS, Mansour Daher. Levantamento preliminar da degradação das áreas de proteção do riacho Pajeú por Mansour Daher Elias, engenheiro civil da equipe de meio ambiente da secretaria executiva regional II da Prefeitura Municipal de Fortaleza. Fortaleza, 2000.";
+
+            case Textos.RELATORIO_INSPECAO:
+                return "NETO, Pedro Raimundo de Oliveira e NETO, Ataciso Cavalcante Mota. Relatório Técnico de Inspeção Nº 182/2013 da Equipe de Controle Ambiental da SEUMA. Fortaleza, 2013. In: Tribunal de Justiça do Estado do Ceará.";
         }
 
         return "";
@@ -119,6 +125,12 @@ public class Fontes {
 
             case Textos.BELLO_RIO_DE_ÁGUA_DOCE:
                 return "https://drive.google.com/file/d/0B6F0AzEGZKFKU2trblI0bEhDV00/view";
+
+            case Textos.RELATORIO_MANSOUR:
+                return "https://drive.google.com/open?id=0B6F0AzEGZKFKZWVvVkxQVm85MTQ";
+
+            case Textos.RELATORIO_INSPECAO:
+                return "https://drive.google.com/open?id=0B6F0AzEGZKFKeldoMlpVbExvM2M";
         }
 
         return "";

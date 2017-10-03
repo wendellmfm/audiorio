@@ -29,6 +29,7 @@
                     android:id="@+id/imageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:background="@android:color/transparent"
                     android:onClick="toggleDrawer"
                     android:src="@drawable/ic_action_drawer" />
@@ -49,6 +50,7 @@
                     android:id="@+id/cameraButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:background="@android:color/transparent"

@@ -1,6 +1,7 @@
 package br.great.excursaopajeu.util;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +22,12 @@ public class EfeitoClique implements View.OnTouchListener {
         TextView buttonTextView = (TextView) vg.getChildAt(0);
 
         if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-            view.setBackgroundColor(context.getResources().getColor(R.color.games_menu_buttons_effect_color));
-            buttonTextView.setTextColor(context.getResources().getColor(R.color.games_menu_buttons_color));
+            view.setBackgroundResource(R.drawable.rounded_button);
+            buttonTextView.setTextColor(ContextCompat.getColor(context, R.color.games_menu_buttons_color));
         }
         if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-            view.setBackgroundColor(context.getResources().getColor(R.color.games_menu_buttons_color));
-            buttonTextView.setTextColor(context.getResources().getColor(R.color.background));
+            view.setBackgroundResource(R.drawable.rounded_edit_text);
+            buttonTextView.setTextColor(ContextCompat.getColor(context, R.color.background));
         }
         return false;
     }

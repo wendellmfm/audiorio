@@ -20,6 +20,8 @@ public class Textos {
     public static final String PARQUE_J_DA_PENHA = "PARQUE J. DA PENHA";
     public static final String TERCEIRO_PLANO = "TERCEIRO PLANO";
     public static final String BELLO_RIO_DE_ÁGUA_DOCE = "BELLO RIO DE ÁGUA DOCE";
+    public static final String RELATORIO_MANSOUR = "RELATÓRIO MANSOUR";
+    public static final String RELATORIO_INSPECAO = "RELATÓRIO INSPEÇÃO";
 
     public static  String getTexto(String nomePonto){
         switch (nomePonto.toUpperCase()){
@@ -414,6 +416,37 @@ public class Textos {
                         "mercadorias dos iates forem desembarcadas e postas em terra, sejam transportadas de\n" +
                         "modo conveniente para cima do monte onde temos os nossos quartéis e armazéns e será\n" +
                         "levantado o forte.";
+            case RELATORIO_MANSOUR:
+                return "Levantamento preliminar da degradação das áreas de proteção do riacho Pajeú por\n" +
+                        "Mansour Daher Elias, engenheiro civil da equipe de meio ambiente da secretaria executiva\n" +
+                        "regional II da Prefeitura Municipal de Fortaleza.\n" +
+                        "Da nascente do Riacho.\n" +
+                        "De acordo com informações de populares, a nascente do Pajeú se situa na Rua Nunes\n" +
+                        "Valente, lado Oeste, próximo à Rua Bárbara de Alencar, por onde desce canalizado em\n" +
+                        "galeria, pelo eixo da rua Bárbara de Alencar.\n" +
+                        "Do trecho percorrido em galeria.\n" +
+                        "Descendo pelo eixo Rua Bárbara de Alencar, o Riacho segue cruzando as Ruas José Vilar,\n" +
+                        "Silva Paulet, Barão de Studart, José Lourenço e desce pela Rui Barbosa até a Av. Heráclito\n" +
+                        "Graça, saindo da caixa dessa avenida na altura da Rua Ildefonso Albano, cruza a Antônio\n" +
+                        "Augusto distando uns 30 metros da Avenida Heráclito Graça e segue cruzando a Rua João\n" +
+                        "Cordeiro, ainda canalizado, por dentro da Oficina Betus Car, localizada no cruzamento da\n" +
+                        "Avenida Heráclito Graça com Rua Gonçalvez Ledo.\n" +
+                        "Fortaleza, 12 de maio de 2 mil";
+            case RELATORIO_INSPECAO:
+                return "O Pajeú nasce próximo à rua Silva Paulet e percorre quase 5 mil metros até chegar ao mar,\n" +
+                        "desaguando entre o Marina Park Hotel e a Indústria Naval do Ceará.\n" +
+                        "Através de vistorias realizadas por técnicos da SEUMA em vistorias realizadas no dia 15 de\n" +
+                        "março de 2013 e ao longo do ano de 2012, foi possível constatar:\n" +
+                        "Os principais impactos acarretados estão relacionados ao revestimento artificial da foz,\n" +
+                        "lançamento de esgotos no curso d&#39;água, a remoção da vegetação natural, a canalização\n" +
+                        "subterrânea e aberta, ao desvio do curso d&#39;água e ocupações comerciais e moradias nas\n" +
+                        "margens e próximas ao riacho.\n" +
+                        "Técnicos da ECA SEUMA estiveram, no dia 15 de março do corrente ano na foz do riacho\n" +
+                        "Pajeú, que encontra-se em terreno ocupado pela Indústria Naval do Ceará, INACE, e não\n" +
+                        "constataram, no momento da vistoria, resíduos sólidos ou mau cheiro no riacho. Não foi\n" +
+                        "possível realizar coleta da água para análise de sua qualidade, pois no momento a SEUMA\n" +
+                        "não conta com laboratório de análises.\n" +
+                        "Fortaleza, 27 de março de 2013.";
         }
 
         return "";
