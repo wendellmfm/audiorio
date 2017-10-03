@@ -71,7 +71,7 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:text="@string/site"
                 android:textColorLink="@color/texto"
-                android:textSize="@dimen/texto_pequeno"
+                android:textSize="@dimen/texto_medio"
                 android:visibility="invisible" />
         </LinearLayout>
     </ScrollView>

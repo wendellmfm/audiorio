@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Excursão Pajeú</string>
-    <string name="app_activities_title">Excursão Pajeú: audioguia</string>
+    <string name="app_activities_title">Excursão Pajeú</string>
     <string name="OK" translatable="false">OK</string>
     <string name="ativar">Ativar</string>
     <string name="sair">Sair</string>
@@ -15,27 +15,28 @@
     <string name="caminhada_iniciada">Caminhada iniciada</string>
     <string name="caminhadas">Caminhar</string>
     <string name="iniciar_caminhada">Iniciar excursão</string>
-    <string name="excursao_pajeu_title">Excursão Pajeú: audioguia</string>
+    <string name="excursao_pajeu_title">Excursão Pajeú</string>
     <string name="enviando_informacoes">Enviando informações</string>
     <string name="sem_aplicativo_de_email">Não há aplicativo de e-mail instalado.</string>
 
-    <string name="intrucoes_caminhada">Convide um amigo para ir junto. Excursão é sempre melhor acompanhado.
-        \n\nProcure alcançar os pontos marcados no mapa. Fique atento! Olhe ao redor, sinta a topografia, procure em frestas e bueiros. Desconfie de portas, muros e até do mapa. O Pajeú pode estar em lugares que você nem imagina.
-        \n\nPara saber a referência de algum conteúdo, toque no marcador. Toque na janela de informações para abrir o documento original.</string>
+    <string name="intrucoes_caminhada">Convide um amigo. Excursão é melhor junto.
+        \n\nProcure alcançar os pontos marcados no mapa.
+        \n\nToque no marcador para saber a referência de um conteúdo. Toque na janela de informações para abrir o documento original.
+        \n\nEnvie uma foto de lembrança.</string>
 
     <!--About activity strings-->
     <string name="titulo_como_usar">COMO USAR</string>
-    <string name="info_como_usar">Convide um amigo. Alguns lugares desta excursão são perigosos.
-        \n\nProcure alcançar os pontos marcados no mapa. Ao ativar os áudios com a sua presença, você vai encontrar o riacho Pajeú pela cidade e através de documentos.
-        \n\nFique atento! Olhe ao redor, sinta a topografia, procure em frestas e bueiros. Desconfie de portas, muros e até do mapa.
-        \n\nSe perca. Adote caminhos suspeitos, entre em becos e estacionamentos: o Pajeú pode estar em lugares que você nem imagina.
-        \n\nPara saber a fonte de algum conteúdo, toque no marcador. Toque na janela de informações para abrir o documento original.
-        \n\nBoa excursão!</string>
+    <string name="info_como_usar">Tire uma manhã para esta experimentação. Caso não esteja confiante, convide um amigo.
+        \n\nAlguns lugares desta excursão são perigosos.
+        \n\nOlhe ao redor, sinta a topografia, procure em frestas e bueiros. Desconfie de portas, muros e até do mapa. Perca-se. Adote caminhos suspeitos, entre em becos e estacionamentos. Fique atento! O Pajeú pode estar em lugares que você nem imagina.
+        \n\nProcure alcançar os pontos marcados no mapa. Ative os marcadores com a sua presença para percorrer o riacho Pajeú através da cidade e de documentos do passado e do presente e de projetos para um possível futuro.
+        \n\nPara saber a referência de um conteúdo, toque no marcador. Toque na janela de informações para abrir o documento original de onde retiramos o trecho lido.
+        \n\nSe encontrar algo surpreendente, envie uma foto de lembrança.
+        \n\nBoa excursão!\n\n\</string>
 
-    <string name="titulo_sobre_o_aplicativo">SOBRE O APLICATIVO</string>
-    <string name="info_sobre_o_aplicativo">Excursão Pajeú: audioguia é um aplicativo que adiciona camadas de informação ao espaço físico do riacho Pajeú.
-        \n\nO deslocamento do participante dispara uma voz maquinal que apresenta documentos do passado e do presente e projetos para um possível futuro, e, com eles, os discursos hegemônicos.
-        \n\nExcursão Pajeú convida a caminhar, ver e viver o espaço e encontrar o que não está no mapa. Convida também a questionar, a partir desse riacho apagado sobre poder e representação na produção dos espaços.\n\n\</string>
+    <string name="titulo_sobre_o_aplicativo">SOBRE</string>
+    <string name="info_sobre_o_aplicativo">Excursão Pajeú é uma experimentação artística de caminhada com uso de mídias locativas que relaciona conteúdos a coordenadas geográficas, adicionando camadas informacionais ao espaço físico do riacho Pajeú.
+        \n\nExcursão Pajeú convida a caminhar, ver e viver o espaço e encontrar o que não está no mapa. Convida também a questionar, a partir desse riacho apagado, sobre poder e representação na produção dos espaços.\n\n\</string>
 
     <string name="titulo_faq">FAQ</string>
     <string name="info_faq">O que faz ser patrimônio?
@@ -47,22 +48,23 @@
         \n\nQue passagens levam ao Pajeú?</string>
 
     <string name="titulo_creditos">CREDITOS</string>
-    <string name="info_creditos"><![CDATA[Excursão Pajeú é uma proposição produzida no contexto da pesquisa de mestrado em Artes "Parque ampliado do Pajeú" desenvolvido no Programa de Pós-graduação em Artes da Universidade Federal do Ceará com orientação do Prof. Dr. Cesar Baio.
+    <string name="info_creditos"><![CDATA[Excursão Pajeú é uma proposição produzida no contexto da pesquisa de mestrado em Artes Parque ampliado do Pajeú: uma abordagem site-specific com uso de locative media.
     <br><br>O produto aqui apresentado é resultado do trabalho conjunto dos grupos de pesquisa ACTLab – Laboratório de Pesquisa em Arte, Ciência e Tecnologia (ICA/UFC) e GREat - GREat – Grupo de Redes de Computadores, Engenharia de Software e Sistemas (UFC):
     <br><br><b>APLICATIVO</b>
     <br><b>Concepção, Pesquisa e Redação</b>
     <br>Cecília Andrade
     <br><b>Orientação</b>
     <br>Cesar Baio
-    <br><b>Colaboração: Pesquisadores em Jogos Pervasivos</b>
-    <br>Prof. Dr. Windson Viana
-    <br>Prof. Dr. Fernando Trinta
-    <br><b>Desenvolvedores</b>
-    <br>Carleandro Nolêto
-    <br>Cristiane Ferreira
+    <br><b>Desenvolvimento</b>
     <br>Wendell Mendes
     <br><b>Interface</b>
-    <br>Cecília Andrade]]></string>
+    <br>Cecília Andrade
+    <br><b>Colaboração em Desenvolvimento</b>
+    <br>Cristiane Ferreira
+    <br>Carleandro Nôleto
+    <br><b>Colaboração: Pesquisadores em Jogos Pervasivos</b>
+    <br>Prof. Dr. Windson Viana
+    <br>Prof. Dr. Fernando Trinta]]></string>
 
     <string name="site">http://www.excursaopajeu.com</string>
 

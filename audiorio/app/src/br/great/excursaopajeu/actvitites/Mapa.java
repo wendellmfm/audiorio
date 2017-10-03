@@ -509,7 +509,7 @@ public class Mapa extends Activity implements LocationListener {
     }
 
     public File getAlbumDir() {
-        File storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Audiorio/");
+        File storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Excursao Pajeu/");
 
         if (!storageDir.exists()) {
             storageDir.mkdirs();
