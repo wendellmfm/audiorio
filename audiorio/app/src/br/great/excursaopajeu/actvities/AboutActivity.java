@@ -1,4 +1,4 @@
-package br.great.excursaopajeu.actvitites;
+package br.great.excursaopajeu.actvities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

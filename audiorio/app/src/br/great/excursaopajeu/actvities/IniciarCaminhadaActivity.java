@@ -1,4 +1,4 @@
-package br.great.excursaopajeu.actvitites;
+package br.great.excursaopajeu.actvities;
 
 import android.Manifest;
 import android.app.Activity;

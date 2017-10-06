@@ -1,4 +1,4 @@
-package br.great.excursaopajeu.actvitites;
+package br.great.excursaopajeu.actvities;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
