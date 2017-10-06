@@ -575,6 +575,7 @@ public class Mapa extends Activity implements LocationListener {
 
         if(firstLocation){
             novaLocalizacao(location);
+            moverCamera(location);
             firstLocation = false;
         }
     }

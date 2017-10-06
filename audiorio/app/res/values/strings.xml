@@ -21,7 +21,8 @@
 
     <string name="intrucoes_caminhada">Convide um amigo. Excursão é melhor junto.
         \n\nProcure alcançar os pontos marcados no mapa.
-        \n\nToque no marcador para saber a referência de um conteúdo. Toque na janela de informações para abrir o documento original.
+        \n\nToque no marcador para saber a referência de um conteúdo.
+        \n\nToque na janela de informações para abrir o documento original.
         \n\nEnvie uma foto de lembrança.</string>
 
     <!--About activity strings-->
