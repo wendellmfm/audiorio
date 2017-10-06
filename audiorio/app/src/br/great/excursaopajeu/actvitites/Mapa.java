@@ -87,6 +87,7 @@ public class Mapa extends Activity implements LocationListener {
     private boolean showPolyLine = true;
     private boolean pontosAdicionados = false;
     private boolean marcadorJogadorAdicionado = false;
+    private boolean firstLocation = true;
     private LocationManager locationManager;
     private ProgressDialog progressDialog;
 
@@ -570,6 +571,11 @@ public class Mapa extends Activity implements LocationListener {
             if (location.getAccuracy() <= 10) {
                 novaLocalizacao(location);
             }
+        }
+
+        if(firstLocation){
+            novaLocalizacao(location);
+            firstLocation = false;
         }
     }
 
