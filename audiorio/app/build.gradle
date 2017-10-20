@@ -17,7 +17,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 15
-        applicationId "br.ufc.great.arviewer.pajeu"
+        applicationId "br.ufc.great.pajeu"
     }
 }
 
